@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Random Video Chat</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Random + Room Video Chat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>🔀 Random Video Chat</h2>
-  <div id="videos">
-    <video id="localVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
+  <div class="container">
+    <h1>🌍 Video Chat — Random & Room</h1>
+
+    <div class="controls">
+      <button id="findBtn">🔀 Random Match</button>
+
+      <div class="room-controls">
+        <input id="roomIdInput" placeholder="Room ID (like: call123)" />
+        <button id="createRoomBtn">Create Room</button>
+        <button id="joinRoomBtn">Join Room</button>
+      </div>
+
+      <div id="status" class="status">Status: Idle</div>
+    </div>
+
+    <div id="videos">
+      <div class="video-card">
+        <div class="label">Your Video</div>
+        <video id="localVideo" autoplay muted playsinline></video>
+      </div>
+      <div class="video-card">
+        <div class="label">Remote Video</div>
+        <video id="remoteVideo" autoplay playsinline></video>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <button id="hangupBtn" class="danger">Hangup</button>
+      <button id="nextBtn">Next (random)</button>
+    </div>
   </div>
-  <div id="controls">
-    <button id="nextBtn">⏭️ Next</button>
-  </div>
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
 </body>
